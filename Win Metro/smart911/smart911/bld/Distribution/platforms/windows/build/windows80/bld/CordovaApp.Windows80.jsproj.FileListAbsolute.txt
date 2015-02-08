@@ -1,0 +1,17 @@
+C:\Users\Manu\Documents\GitHub\Smart911\Win Metro\smart911\smart911\bld\Distribution\platforms\windows\build\windows80\release\anycpu\resources.pri
+C:\Users\Manu\Documents\GitHub\Smart911\Win Metro\smart911\smart911\bld\Distribution\platforms\windows\build\windows80\release\anycpu\AppxManifest.xml
+C:\Users\Manu\Documents\GitHub\Smart911\Win Metro\smart911\smart911\bld\Distribution\platforms\windows\build\windows80\release\anycpu\CordovaApp.Windows80.build.appxrecipe
+C:\Users\Manu\Documents\GitHub\Smart911\Win Metro\smart911\smart911\bld\Distribution\platforms\windows\build\windows80\bld\priconfig.xml
+C:\Users\Manu\Documents\GitHub\Smart911\Win Metro\smart911\smart911\bld\Distribution\platforms\windows\build\windows80\bld\priconfig.xml.intermediate
+C:\Users\Manu\Documents\GitHub\Smart911\Win Metro\smart911\smart911\bld\Distribution\platforms\windows\build\windows80\bld\layout.resfiles
+C:\Users\Manu\Documents\GitHub\Smart911\Win Metro\smart911\smart911\bld\Distribution\platforms\windows\build\windows80\bld\layout.resfiles.intermediate
+C:\Users\Manu\Documents\GitHub\Smart911\Win Metro\smart911\smart911\bld\Distribution\platforms\windows\build\windows80\bld\resources.resfiles
+C:\Users\Manu\Documents\GitHub\Smart911\Win Metro\smart911\smart911\bld\Distribution\platforms\windows\build\windows80\bld\resources.resfiles.intermediate
+C:\Users\Manu\Documents\GitHub\Smart911\Win Metro\smart911\smart911\bld\Distribution\platforms\windows\build\windows80\bld\pri.resfiles
+C:\Users\Manu\Documents\GitHub\Smart911\Win Metro\smart911\smart911\bld\Distribution\platforms\windows\build\windows80\bld\pri.resfiles.intermediate
+C:\Users\Manu\Documents\GitHub\Smart911\Win Metro\smart911\smart911\bld\Distribution\platforms\windows\build\windows80\bld\qualifiers.txt
+C:\Users\Manu\Documents\GitHub\Smart911\Win Metro\smart911\smart911\bld\Distribution\platforms\windows\build\windows80\bld\qualifiers.txt.intermediate
+C:\Users\Manu\Documents\GitHub\Smart911\Win Metro\smart911\smart911\bld\Distribution\platforms\windows\build\windows80\bld\MultipleQualifiersPerDimensionFound.txt
+C:\Users\Manu\Documents\GitHub\Smart911\Win Metro\smart911\smart911\bld\Distribution\platforms\windows\build\windows80\bld\ProjectArchitectures.txt
+C:\Users\Manu\Documents\GitHub\Smart911\Win Metro\smart911\smart911\bld\Distribution\platforms\windows\build\windows80\bld\package.map.txt
+C:\Users\Manu\Documents\GitHub\Smart911\Win Metro\smart911\smart911\bld\Distribution\platforms\windows\build\windows80\bld\_pkginfo.txt
