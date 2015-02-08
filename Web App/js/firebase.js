@@ -63,7 +63,7 @@ function addOperator(number) {
             operatorRef.push({
                 "number":number,
                 "case":-1,
-                "online":false
+                "online":true
             });
         }
     });
