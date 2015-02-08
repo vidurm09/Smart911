@@ -16,10 +16,15 @@
     <script type="text/javascript" src="js/mappy.js"></script>
     <!--Operator check-->
     <script language="javascript" type="text/javascript">
-        if () {
+        if (localStorage['phone'] == null) {
             var phone;
             phone = window.prompt("What's your phone number?", "1");
             phone = parseInt(phone);
+            localStorage['phone'] = phone;
+            addOperator(phone);
+            operatorOnline(phone);
+        } else {
+            var phone = localStorage['phone'];
             operatorOnline(phone);
         }
     </script>

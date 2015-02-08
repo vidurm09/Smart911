@@ -42,6 +42,25 @@ function addOperator(number) {
         "online":false
     });     
 }
+function operatorOffline(number) {
+   operatorRef.orderByChild("number").on("child_added", function(snap) {
+        if(snap.val().number == number) {
+            console.log(snap.val())
+            operatorRef.child(snap.key()).update({
+                "online":false
+            });  
+        }
+    }); 
+}
+function operatorOffcase(number) {
+    operatorRef.orderByChild("number").on("child_added", function(snap) {
+        if(snap.val().number == number) {
+            operatorRef.child(snap.key()).update({
+                "case":-1
+            });  
+        }
+    }); 
+}
 function operatorOnline(number) {
     operatorRef.orderByChild("number").on("child_added", function(snap) {
         if(snap.val().number == number) {
@@ -60,3 +79,5 @@ function addOperatorToCase(caseid) {
         }
     });
 };
+addOperatorToCase(2)
+operatorOnline(14088584926)
