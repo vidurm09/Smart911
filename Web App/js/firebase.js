@@ -5,10 +5,8 @@ var autoID;
 var operatorRef;
 var currentCaseID;
 var addCase = function() {
-    fb.orderByKey().equalTo("autoID").on("child_added", function(snapshot) {
-        var autoID = snapshot.val();
         casesRef.push({
-            "id":autoID,
+            "id":-1,
             "operator":null,
             "EMT" : {
                 "location":"",
@@ -19,11 +17,7 @@ var addCase = function() {
                 "location" : "",
                 "phone": ""
             }
-        });
-        fb.update({
-            "autoID":(autoID+1)
-        });
-    });  
+        });  
 }
 var findCase = function(id) {
     casesRef.orderByChild("id").on("child_added", function(snapshot) {
@@ -32,11 +26,11 @@ var findCase = function(id) {
         }
     });
 }
-function findLocation(id) {
+function findLocation() {
+    
     casesRef.orderByChild("id").on("child_added", function(snapshot) {
-        if(snapshot.val().id == id) {
-            //return snapshot.val().user.location;
-                
+        if(snapshot.val().id == currentCaseID && !isOff) {
+            //return snapshot.val().user.location;   
             return casesRef.child(snapshot.key()).child("user").location;  
         }
     });
@@ -95,7 +89,8 @@ function operatorOffline(number) {
 function currCaseChange() {
     operatorRef.orderByChild("number").on("child_changed", function (s) {
         if(s.val().case != -1) {
-            alert(s.val().case);    
+            alert(s.val().case);
+            currentCaseID = s.val().case;
         }
     });
 }
@@ -124,5 +119,5 @@ function operatorOnline(number) {
         }
     });
 }
-findLocation(0)
-currCaseChange()
+findLocation(0);
+currCaseChange();

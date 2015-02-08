@@ -16,7 +16,7 @@
     <!--Google Maps-->
     <script type="text/javascript" src="js/maps.js"></script>
     <script type="text/javascript" src="js/mappy.js"></script>
-    
+
     <!--Operator check-->
     <script language="javascript" type="text/javascript">
         if (localStorage['phone'] == null || localStorage['phone'] == "null") {
@@ -31,27 +31,40 @@
             operatorOnline(phone);
         }
     </script>
-    <!--Azure-
+    <!--Azure-->
     <script language="javascript" type="text/javascript">
-        var MobileServiceClient = WindowsAzure.MobileServiceClient;
-        var client = new MobileServiceClient('https://smart911.azure-mobile.net/tables/', '');
-        var items = client.getTable('item');
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = process;
+        xhr.open("GET", "https://smart911.azure-mobile.net/tables/item", true);
+        xhr.send();
+
+        function process() {
+            if (xhr.readyState == 4) {
+                var resp = JSON.parse(xhr.responseText);
+
+                // resp now has the text and you can process it.
+                alert(resp);
+            }
+        }
+         //var MobileServiceClient = WindowsAzure.MobileServiceClient;
+         //var client = new MobileServiceClient('https://smart911.azure-mobile.net/tables/', '');
+         //var items = client.getTable('item');
          //alert(items.getTableName());
          //items.insert("Stuff");
          //alert(JSON.stringify(items.lookup(23E32CBF-5CE0-42F0-B9A5-A47EBA418ED0)));
-        var itemTable=mobileService.getTable('item').select('(23E32CBF-5CE0-42F0-B9A5-A47EBA418ED0');
-        alert(itemTable);
-        //alert(ajax.get('https://smart911.azure-mobile.net/tables/item/', {foo: 'bar'}, function() {}));
-        //alert(items.lookup(23E32CBF - 5CE0 - 42F0 - B9A5 - A47EBA418ED0));
-        //items.read(query);
-/*var query = items.where({
+         //var itemTable=mobileService.getTable('item').select('(23E32CBF-5CE0-42F0-B9A5-A47EBA418ED0');
+         //alert(itemTable);
+         //alert(ajax.get('https://smart911.azure-mobile.net/tables/item/', {foo: 'bar'}, function() {}));
+         //alert(items.lookup(23E32CBF - 5CE0 - 42F0 - B9A5 - A47EBA418ED0));
+         //items.read(query);
+        /*var query = items.where({
 complete: false
 }).read().done(function (results) {
 alert(JSON.stringify(results));
 }, function (err) {
 alert("Error: " + err);
 });*/
-    </script>-->
+    </script>
     <!--AJAX
     <script language="javascript" type="text/javascript">
         $.get("https://smart911.azure-mobile.net/tables/item/", function(data) {
@@ -70,21 +83,22 @@ alert("Error: " + err);
         </div>
     </header>
     <div class="row" style="margin-top:2%">
-        <div class="col-sm-4" style="margin-left:2%">
+        <div class="col-sm-5" style="margin-left:2%">
             <div class="panel panel-primary">
                 <div class="panel-heading">Live Feed</div>
                 <img src="images/initpic.jpg" style="width: 100%; height:auto" alt="Cats">
             </div>
         </div>
 
-        <div class="col-sm-3">
+        <div class="col-sm-6">
             <div class="panel panel-primary">
                 <div class="panel-heading">Location</div>
                 <div id="map-canvas" style="width:auto; height:400px"></div>
             </div>
         </div>
 
-        <div class="col-sm-4">
+        <!--Who needs voice
+    <div class="col-sm-4">
             <div class="panel panel-primary">
                 <div class="panel-heading">Voice</div>
                 <audio controls style="width:100%; height:auto;margin-top:8%">
@@ -93,7 +107,7 @@ alert("Error: " + err);
                             Your browser does not support the audio element.
                 </audio>
             </div>
-        </div>
+        </div>-->
         <!--Don't need this cat
         <div class="col-sm-2">
             <div class="panel panel-default">
@@ -103,6 +117,6 @@ alert("Error: " + err);
         </div>
         -->
     </div>
-</body>
+    </body>
 
 </html>
