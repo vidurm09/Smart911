@@ -30,36 +30,39 @@
     </script>
 </head>
 
-<body>
+<body style="background-color:#ecf0f1">
     <header role="banner">
         <div style="margin: 0 auto; text-align: left; width: 30%;">
             <h1 style="color: #2980b9;">You da Operator</h1>
+<<<<<<< HEAD
             <a href="#" style="margin-left:7%" onclick="operatorOffline(localStorage['phone'])" class="btn btn-default">Sign Out</a>
             <a href="#" style="width=60%" onclick="operatorOffcase(localStorage['phone'])" class="btn btn-default">Stop Case</a>
+=======
+            <a href="#" style="margin-left:7%" onclick="" class="btn btn-danger">Sign Out</a>
+            <a href="#" style="width=60%" onclick="" class="btn btn-danger">Stop Case</a>
+>>>>>>> origin/master
         </div>
     </header>
-    <div class="panel panel-default">
-        <div class="panel-heading; width: 30%">For the operator</div>
-        <div class="row">
-
-            <div class="col-sm-4">
-                <div class="panel panel-default">
+    <div>
+        <div class="row" style="margin-top:2%">
+            <div class="col-sm-4" style="margin-left:2%">
+                <div class="panel panel-primary">
                     <div class="panel-heading">Live Feed</div>
-                    <img src="images/initpic.jpg" style="width: 105%; height:105%" alt="Cats">
+                    <img src="images/initpic.jpg" style="width: 100%; height:auto" alt="Cats">
                 </div>
             </div>
 
             <div class="col-sm-3">
-                <div class="panel panel-default">
+                <div class="panel panel-primary">
                     <div class="panel-heading">Location</div>
-                    <div id="map-canvas" style="width:300px; height:400px"></div>
+                    <div id="map-canvas" style="width:auto; height:400px"></div>
                 </div>
             </div>
 
             <div class="col-sm-4">
-                <div class="panel panel-default">
+                <div class="panel panel-primary">
                     <div class="panel-heading">Voice</div>
-                    <audio controls>
+                    <audio controls style="width:100%; height:auto;margin-top:8%">
                         <source src="media/cat8.wav" type="audio/wav">
                             <source src="media/at8.mp3" type="audio/mpeg">
                                 Your browser does not support the audio element.
@@ -75,7 +78,6 @@
             </div>
             -->
         </div>
-    </div>
 </body>
 
 </html>
