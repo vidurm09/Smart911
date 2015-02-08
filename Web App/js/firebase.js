@@ -25,7 +25,6 @@ var addCase = function() {
         });
     });  
 }
-<<<<<<< HEAD
 var findCase = function(id) {
     casesRef.orderByChild("id").on("child_added", function(snapshot) {
         if(snapshot.val().id == id) {
@@ -38,9 +37,10 @@ function findLocation(id) {
         if(snapshot.val().id == id) {
             //return snapshot.val().user.location;
                 
-            return casesRef.child(snapshot.key()).child("user").location;      
-=======
-
+            return casesRef.child(snapshot.key()).child("user").location;  
+        }
+    });
+}
 function findLocation(id) {
     casesRef.once("value", function(snapshot) {
         var cases = snapshot.val()
@@ -49,7 +49,6 @@ function findLocation(id) {
                 console.log(cases[i].user.location);
                 break;
             }
->>>>>>> origin/master
         }
     });
     
@@ -124,10 +123,6 @@ function operatorOnline(number) {
             }
         }
     });
-<<<<<<< HEAD
-};
-=======
 }
 findLocation(0)
 currCaseChange()
->>>>>>> origin/master
