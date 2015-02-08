@@ -5,145 +5,68 @@
     <meta charset="utf-8">
     <title>911</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
-    <link rel="icon" href="favicon.ico" type="image/x-icon" sizes="16x16">  
-    <script src="js/fire.js"></script>
-    <script src="js/firebase.js"></script>
-    <!--[if lt IE 9]>
-=======
-	<meta charset="utf-8">
-	<title>911</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="icon" href="favicon.ico" type="image/x-icon" sizes="16x16">
-    <script src="js/fire.js"></script>
-    <script src="js/firebase.js"></script>
-
-	<!--[if lt IE 9]>
->>>>>>> origin/master
-            <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
-        <![endif]-->
-<<<<<<< HEAD
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/mine.css">
-
-	<!--Google Maps lat long-->
-	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-	<script language="javascript" type="text/javascript">
-		var map;
-		var geocoder;
-
-		function InitializeMap() {
-
-			var latlng = new google.maps.LatLng(-34.397, 150.644);
-			var myOptions = {
-				zoom: 8,
-				center: latlng,
-				mapTypeId: google.maps.MapTypeId.ROADMAP,
-				disableDefaultUI: true
-			};
-			map = new google.maps.Map(document.getElementById("map"), myOptions);
-		}
-
-		function FindLocaiton() {
-			geocoder = new google.maps.Geocoder();
-			InitializeMap();
-			var address =
-				(33.576553, -111.885173);
-			//document.getElementById("addressinput").value;
-			geocoder.geocode({
-				'address': address
-			}, function (results, status) {
-				if (status == google.maps.GeocoderStatus.OK) {
-					map.setCenter(results[0].geometry.location);
-					var marker = new google.maps.Marker({
-						map: map,
-						position: results[0].geometry.location
-					});
-
-				} else {
-					alert("Geocode was not successful for the following reason: " + status);
-				}
-			});
-
-		}
-
-
-		function Button1_onclick() {
-			FindLocaiton();
-		}
-		setInterval(function () {
-			window.onload = InitializeMap;
-		}, 1000);
-	</script>
-	<!--Operator check-->
-	<script language="javascript" type="text/javascript">
-		if (true) {
-			var phone;
-			phone = window.prompt("What's your phone number?", "1");
-            phone = parseInt(phone);    
-            operatorOnline(phone);
-		}
-	</script>
-</head>
-
-<body>
-	<header role="banner">
-		<hgroup>
-			<h1><a href="#">You da Operator</a></h1>
-		</hgroup>
-	</header>
-	<div class="panel panel-default">
-		<div class="panel-heading">For the operator</div>
-		<div class="row">
-
-			<div class="col-sm-4">
-				<div class="panel panel-default">
-					<div class="panel-heading">Live Feed</div>
-					<img src="images/livefeed.gif" alt="Cats">
-				</div>
-			</div>
-
-			<div class="col-sm-3">
-				<div class="panel panel-default">
-					<div class="panel-heading">Location</div>
-					<div id="map" id="location" style="height: 250px; width: 250px"></div>
-				</div>
-			</div>
-
-			<div class="col-sm-3">
-				<div class="panel panel-default">
-					<div class="panel-heading">Voice</div>
-					<audio controls>
-							<source src="media/at8.mp3" type="audio/mpeg">
-								Your browser does not support the audio element.
-					</audio>
-				</div>
-			</div>
-
-			<div class="col-sm-2">
-				<div class="panel panel-default">
-					<div class="panel-heading">Initial Picture</div>
-					<img src="images/initpic.jpg" alt="Cats">
-				</div>
-			</div>
-		</div>
-	</div>
-=======
-=======
     <link rel="icon" href="favicon.ico" type="image/x-icon" sizes="16x16">
->>>>>>> origin/master
+    <script src="js/fire.js"></script>
+    <script src="js/firebase.js"></script>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/mine.css">
 
     <!--Google Maps lat long-->
-    <script type="text/javascript" src="js/maps.js"></script>
-    <script type="text/javascript" src="js/mappy.js"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script language="javascript" type="text/javascript">
+        var map;
+        var geocoder;
+
+        function InitializeMap() {
+
+            var latlng = new google.maps.LatLng(-34.397, 150.644);
+            var myOptions = {
+                zoom: 8,
+                center: latlng,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                disableDefaultUI: true
+            };
+            map = new google.maps.Map(document.getElementById("map"), myOptions);
+        }
+
+        function FindLocaiton() {
+            geocoder = new google.maps.Geocoder();
+            InitializeMap();
+            var address =
+                (33.576553, -111.885173);
+            //document.getElementById("addressinput").value;
+            geocoder.geocode({
+                'address': address
+            }, function (results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    map.setCenter(results[0].geometry.location);
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: results[0].geometry.location
+                    });
+
+                } else {
+                    alert("Geocode was not successful for the following reason: " + status);
+                }
+            });
+
+        }
+
+
+        function Button1_onclick() {
+            FindLocaiton();
+        }
+        setInterval(function () {
+            window.onload = InitializeMap;
+        }, 1000);
+    </script>
     <!--Operator check-->
     <script language="javascript" type="text/javascript">
-        if (localStorage.length == 0) {
+        if (true) {
             var phone;
             phone = window.prompt("What's your phone number?", "1");
-            localStorage["phone"] = phone;
+            phone = parseInt(phone);
+            operatorOnline(phone);
         }
     </script>
 </head>
@@ -161,14 +84,14 @@
             <div class="col-sm-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">Live Feed</div>
-                    <img src="images/initpic.jpg" style="width: 105%; height:105%" alt="Cats">
+                    <img src="images/livefeed.gif" alt="Cats">
                 </div>
             </div>
 
             <div class="col-sm-3">
                 <div class="panel panel-default">
                     <div class="panel-heading">Location</div>
-                    <div id="map-canvas" style="width:300px; height:400px"></div>
+                    <div id="map" id="location" style="height: 250px; width: 250px"></div>
                 </div>
             </div>
 
@@ -176,9 +99,8 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Voice</div>
                     <audio controls>
-                        <source src="media/cat8.wav" type="audio/wav">
-                            <source src="media/at8.mp3" type="audio/mpeg">
-                                Your browser does not support the audio element.
+                        <source src="media/at8.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
                     </audio>
                 </div>
             </div>
@@ -191,6 +113,67 @@
             </div>
         </div>
     </div>
-</body>
+    ======= =======
+    <link rel="icon" href="favicon.ico" type="image/x-icon" sizes="16x16"> >>>>>>> origin/master
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/mine.css">
+
+    <!--Google Maps lat long-->
+    <script type="text/javascript" src="js/maps.js"></script>
+    <script type="text/javascript" src="js/mappy.js"></script>
+    <!--Operator check-->
+    <script language="javascript" type="text/javascript">
+        if (localStorage.length == 0) {
+            var phone;
+            phone = window.prompt("What's your phone number?", "1");
+            localStorage["phone"] = phone;
+        }
+    </script>
+    </head>
+
+    <body>
+        <header role="banner">
+            <hgroup>
+                <h1><a href="#">You da Operator</a></h1>
+            </hgroup>
+        </header>
+        <div class="panel panel-default">
+            <div class="panel-heading">For the operator</div>
+            <div class="row">
+
+                <div class="col-sm-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Live Feed</div>
+                        <img src="images/initpic.jpg" style="width: 105%; height:105%" alt="Cats">
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Location</div>
+                        <div id="map-canvas" style="width:300px; height:400px"></div>
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Voice</div>
+                        <audio controls>
+                            <source src="media/cat8.wav" type="audio/wav">
+                                <source src="media/at8.mp3" type="audio/mpeg">
+                                    Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+
+                <div class="col-sm-2">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Initial Picture</div>
+                        <img src="images/initpic.jpg" alt="Cats">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
 
 </html>
