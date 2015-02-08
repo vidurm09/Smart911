@@ -16,7 +16,6 @@
     <!--Google Maps-->
     <script type="text/javascript" src="js/maps.js"></script>
     <script type="text/javascript" src="js/mappy.js"></script>
-
     <!--Operator check-->
     <script language="javascript" type="text/javascript">
         if (localStorage['phone'] == null || localStorage['phone'] == "null") {
@@ -35,65 +34,64 @@
     <script language="javascript" type="text/javascript">
         //var xmlhttp = new XMLHttpRequest();
         var url = "http://antiamoebic.com/manu/Server/getstuff.php";
-        
-        $.getJSON( url, function( data ) {
-          console.log(data);
+        var datas;
+        var images;
+        var imageStr;
+        $.getJSON(url, function (data) {
+            datas = data;
+            console.log(data);
+            images = datas[datas.length - 1];
+            imageStr = images.Text;
+            console.log(imageStr);
         });
-
     </script>
-    <!--AJAX
+    <!--Base 64 Decoder-->
     <script language="javascript" type="text/javascript">
-        $.get("https://smart911.azure-mobile.net/tables/item/", function(data) {
-            $(".result").html(data);
-            alert("load");
-        });
-    </script>-->
-</head>
+        var JSLink = "data:text/javascript;base64,/9j/" + imageStr;
+        var JSElement = document.createElement('script');
+        JSElement.src = JSLink;
+        JSElement.onload = OnceLoaded;
+        document.getElementById('stuff')[0].appendChild(JSElement);
 
-<body style="background-color:#ecf0f1">
-    <header role="banner">
-        <div style="margin: 0 auto; text-align: left; width: 30%;">
-            <h1 style="color: #2980b9;">You da Operator</h1>
-            <a href="#" style="margin-left:7%" onclick="operatorOffline(localStorage['phone'])" class="btn btn-default">Sign Out</a>
-            <a href="#" style="margin-left:7%" onclick="operatorOffline(localStorage['phone'])" class="btn btn-default">Sign Out</a>
-            <a href="#" style="width=60%" onclick="operatorOffcase(localStorage['phone'])" class="btn btn-default">Stop Case</a>
-        </div>
-    </header>
-    <div class="row" style="margin-top:2%">
-        <div class="col-sm-5" style="margin-left:2%">
-            <div class="panel panel-primary">
-                <div class="panel-heading">Live Feed</div>
-                <img src="images/initpic.jpg" style="width: 100%; height:auto" alt="Cats">
-            </div>
-        </div>
+        function OnceLoaded() {
+            // Once loaded.. load other JS or CSS or call objects of version.js
+        }
+    </script>
 
-        <div class="col-sm-6">
-            <div class="panel panel-primary">
-                <div class="panel-heading">Location</div>
-                <div id="map-canvas" style="width:auto; height:400px"></div>
-            </div>
-        </div>
-        <div id="stuff"></div>
-        <!--Who needs voice
-    <div class="col-sm-4">
-            <div class="panel panel-primary">
-                <div class="panel-heading">Voice</div>
-                <audio controls style="width:100%; height:auto;margin-top:8%">
-                    <source src="media/cat8.wav" type="audio/wav">
-                        <source src="media/at8.mp3" type="audio/mpeg">
-                            Your browser does not support the audio element.
-                </audio>
-            </div>
-        </div>-->
-        <!--Don't need this cat
-        <div class="col-sm-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Initial Picture</div>
-                <img src="images/initpic.jpg" alt="Cats">
-            </div>
-        </div>
-        -->
-    </div>
-</body>
+    <head>
 
-</html>
+        <body style="background-color:#ecf0f1">
+            <header role="banner">
+                <div style="margin: 0 auto; text-align: left; width: 30%;">
+                    <h1 style="color: #2980b9;">You da Operator</h1 > < a href = "#" style = "margin-left:7%" onclick="operatorOffline(localStorage['phone'])" class = "btn btn-default" > Sign Out < /a>
+<a href="#" style="width=60%" onclick="operatorOffcase(localStorage['phone'])" class="btn btn-default">Stop Case</a > < /div>
+</header > < div class = "row"
+style = "margin-top:2%" > < div class = "col-sm-5"
+style = "margin-left:2%" > < div class = "panel panel-primary" > < div class = "panel-heading" > Live Feed < /div>
+<div id="stuff"></div >
+<!--<img src="images/initpic.jpg" style="width: 100%; height:auto" alt="Cats">-->
+< /div>
+</div >
+
+< div class = "col-sm-6" > < div class = "panel panel-primary" > < div class = "panel-heading" > Location < /div>
+<div id="map-canvas" style="width:auto; height:400px"></div > < /div>
+</div > < div id = "stuff" > < /div>
+<!--Who needs voice
+<div class="col-sm-4">
+<div class="panel panel-primary">
+<div class="panel-heading">Voice</div > < audio controls style = "width:100%; height:auto;margin-top:8%" > < source src = "media/cat8.wav"
+type = "audio/wav" > < source src = "media/at8.mp3"
+type = "audio/mpeg" >
+Your browser does not support the audio element. < /audio>
+</div > < /div>-->
+<!--Don't need this cat
+<div class="col-sm-2">
+<div class="panel panel-default">
+<div class="panel-heading">Initial Picture</div > < img src = "images/initpic.jpg"
+alt = "Cats" > < /div>
+</div >
+-->
+< /div>
+</body >
+
+< /html>
