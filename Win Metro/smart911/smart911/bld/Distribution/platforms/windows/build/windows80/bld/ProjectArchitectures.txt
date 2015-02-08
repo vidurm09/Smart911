@@ -1,1 +1,0 @@
-C:\Users\Manu\Documents\GitHub\Smart911\Win Metro\smart911\smart911\bld\Distribution\platforms\windows\CordovaApp.Windows80.jsproj;neutral
