@@ -89,6 +89,7 @@ function operatorOffline(number) {
 function currCaseChange() {
     operatorRef.orderByChild("number").on("child_changed", function (s) {
         if(s.val().case != -1) {
+            alert(s.val().case);
             currentCaseID = s.val().case;
         }
     });
