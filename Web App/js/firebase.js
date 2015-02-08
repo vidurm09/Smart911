@@ -51,6 +51,23 @@ function operatorOnline(number) {
         }
     });
 }
+function operatorNumber(number) {
+    count = 0;
+    operatorRef.orderByChild("number").on("child_added", function(snap) {
+        
+        if(snap.val().number == number) {
+            operatorRef.child(snap.key()).update({
+                "online":true
+            });  
+            console.log(snap.val())
+            count++
+        }
+    });
+    if(count == 0) {
+        addOperator(number)
+        operatorOnline(number)
+    }
+}
 function addOperatorToCase(caseid) {
     operatorRef.orderByChild("case").on("child_added", function(snap) {
         console.log(snap.val());
@@ -59,4 +76,5 @@ function addOperatorToCase(caseid) {
             console.log(snap.key());
         }
     });
+   
 };
