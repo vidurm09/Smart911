@@ -19,7 +19,7 @@
     
     <!--Operator check-->
     <script language="javascript" type="text/javascript">
-        if (localStorage['phone'] == null) {
+        if (localStorage['phone'] == null || localStorage['phone'] == "null") {
             var phone;
             phone = window.prompt("What's your phone number?", "1");
             phone = parseInt(phone);

@@ -25,6 +25,7 @@ var addCase = function() {
         });
     });  
 }
+<<<<<<< HEAD
 var findCase = function(id) {
     casesRef.orderByChild("id").on("child_added", function(snapshot) {
         if(snapshot.val().id == id) {
@@ -38,51 +39,95 @@ function findLocation(id) {
             //return snapshot.val().user.location;
                 
             return casesRef.child(snapshot.key()).child("user").location;      
+=======
+
+function findLocation(id) {
+    casesRef.once("value", function(snapshot) {
+        var cases = snapshot.val()
+        for (i in cases){
+            if (cases[i].id == id){
+                console.log(cases[i].user.location);
+                break;
+            }
+>>>>>>> origin/master
         }
     });
     
 }
 function addOperator(number) {
-    operatorRef.push({
-        "number":number,
-        "case":-1,
-        "online":false
-    });     
+    operatorRef.once("value", function(snap) {
+        value = snap.val()
+        count = false;
+        for (var key in value){
+            if(value[key].number == number)
+            {
+                count = true;
+                break;
+            }
+        }
+        
+        if(!count) {
+            operatorRef.push({
+                "number":number,
+                "case":-1,
+                "online":false
+            });
+        }
+    });
+    
 }
 function operatorOffline(number) {
-   operatorRef.orderByChild("number").on("child_added", function(snap) {
-        if(snap.val().number == number) {
-            console.log(snap.val())
-            operatorRef.child(snap.key()).update({
-                "online":false
-            });  
+    operatorRef.once("value", function(snap) {
+        value = snap.val()
+        for (var key in value){
+            if(value[key].number == number)
+            {
+                console.log("Signing in out " + number)
+                operatorRef.child(snap.key()).update({
+                    "online":false
+                }); 
+                break;
+            }
         }
-    }); 
+    });
+    operatorOffcase(number);                 
+    localStorage['phone'] = null;
+}
+function currCaseChange() {
+    operatorRef.orderByChild("number").on("child_changed", function (s) {
+        if(s.val().case != -1) {
+            alert(s.val().case);    
+        }
+    });
 }
 function operatorOffcase(number) {
-    operatorRef.orderByChild("number").on("child_added", function(snap) {
-        if(snap.val().number == number) {
-            operatorRef.child(snap.key()).update({
-                "case":-1
-            });  
+    operatorRef.once("value", function(snap) {
+        value = snap.val()
+        for (var key in value){
+            if(snap.val().number == number) {
+                console.log("Off case " + snap.val().case)
+                operatorRef.child(snap.key()).update({
+                    "case":-1
+                });  
+            }
         }
-    }); 
+    });
 }
 function operatorOnline(number) {
-    operatorRef.orderByChild("number").on("child_added", function(snap) {
-        if(snap.val().number == number) {
-            operatorRef.child(snap.key()).update({
-                "online":true
-            });  
+    operatorRef.once("value", function(snap) {
+        value = snap.val()
+        for (var key in value){
+            if(snap.val().number == number) {
+                operatorRef.child(snap.key()).update({
+                    "online":true
+                });  
+            }
         }
     });
-}
-function addOperatorToCase(caseid) {
-    operatorRef.orderByChild("case").on("child_added", function(snap) {
-        console.log(snap.val());
-        if(snap.val().case == -1 && snap.val().online == true) {
-            operatorRef.child(snap.key()).update({"case":caseid});    
-            console.log(snap.key());
-        }
-    });
+<<<<<<< HEAD
 };
+=======
+}
+findLocation(0)
+currCaseChange()
+>>>>>>> origin/master
