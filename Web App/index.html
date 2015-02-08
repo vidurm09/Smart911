@@ -10,9 +10,13 @@
     <script src="js/firebase.js"></script>
     <link rel="stylesheet" href="css/bootstrap.min.css">
 
-    <!--Google Maps lat long-->
+
+    <!--<script src='http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.1.2.min.js'></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <!--Google Maps-->
     <script type="text/javascript" src="js/maps.js"></script>
     <script type="text/javascript" src="js/mappy.js"></script>
+    
     <!--Operator check-->
     <script language="javascript" type="text/javascript">
         if (localStorage['phone'] == null) {
@@ -27,6 +31,34 @@
             operatorOnline(phone);
         }
     </script>
+    <!--Azure-
+    <script language="javascript" type="text/javascript">
+        var MobileServiceClient = WindowsAzure.MobileServiceClient;
+        var client = new MobileServiceClient('https://smart911.azure-mobile.net/tables/', '');
+        var items = client.getTable('item');
+         //alert(items.getTableName());
+         //items.insert("Stuff");
+         //alert(JSON.stringify(items.lookup(23E32CBF-5CE0-42F0-B9A5-A47EBA418ED0)));
+        var itemTable=mobileService.getTable('item').select('(23E32CBF-5CE0-42F0-B9A5-A47EBA418ED0');
+        alert(itemTable);
+        //alert(ajax.get('https://smart911.azure-mobile.net/tables/item/', {foo: 'bar'}, function() {}));
+        //alert(items.lookup(23E32CBF - 5CE0 - 42F0 - B9A5 - A47EBA418ED0));
+        //items.read(query);
+/*var query = items.where({
+complete: false
+}).read().done(function (results) {
+alert(JSON.stringify(results));
+}, function (err) {
+alert("Error: " + err);
+});*/
+    </script>-->
+    <!--AJAX
+    <script language="javascript" type="text/javascript">
+        $.get("https://smart911.azure-mobile.net/tables/item/", function(data) {
+            $(".result").html(data);
+            alert("load");
+        });
+    </script>-->
 </head>
 
 <body style="background-color:#ecf0f1">
@@ -63,13 +95,13 @@
             </div>
         </div>
         <!--Don't need this cat
-            <div class="col-sm-2">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Initial Picture</div>
-                    <img src="images/initpic.jpg" alt="Cats">
-                </div>
+        <div class="col-sm-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Initial Picture</div>
+                <img src="images/initpic.jpg" alt="Cats">
             </div>
-            -->
+        </div>
+        -->
     </div>
 </body>
 

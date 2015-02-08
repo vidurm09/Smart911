@@ -28,16 +28,16 @@ var addCase = function() {
 var findCase = function(id) {
     casesRef.orderByChild("id").on("child_added", function(snapshot) {
         if(snapshot.val().id == id) {
-            return snapshot.key();      
+            return snapshot.key();
         }
     });
 }
 function findLocation(id) {
     casesRef.orderByChild("id").on("child_added", function(snapshot) {
         if(snapshot.val().id == id) {
-            console.log(snapshot.val().user.location);
+            //return snapshot.val().user.location;
                 
-            console.log(casesRef.child(snapshot.key()).child("user").location);      
+            return casesRef.child(snapshot.key()).child("user").location;      
         }
     });
     
@@ -86,4 +86,3 @@ function addOperatorToCase(caseid) {
         }
     });
 };
-findLocation(0)
