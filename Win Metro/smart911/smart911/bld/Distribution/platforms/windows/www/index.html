@@ -1,0 +1,90 @@
+﻿<!doctype html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <title>911</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico" type="image/x-icon" sizes="16x16">
+    <!--[if lt IE 9]>
+    =======
+        <meta charset="utf-8">
+        <title>911</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="favicon.ico" type="image/x-icon" sizes="16x16">
+        <script src="https://cdn.firebase.com/js/client/2.1.2/firebase.js"></script>
+        <script src="js/firebase.js"></script>
+
+        <!--[if lt IE 9]>
+    >>>>>>> origin/master
+                <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+            <![endif]-->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/mine.css">
+    <!--Cordova-->
+    <script src="cordova.js"></script>
+    <script src="scripts/platformOverrides.js"></script>
+
+    <script src="scripts/index.js"></script>
+    <!--Twilio-->
+    <script type="text/javascript" src="js/twilio.min.js"></script>
+
+    <!--Google Maps lat long-->
+    <script type="text/javascript" src="js/maps.js"></script>
+    <script type="text/javascript" src="js/mappy.js"></script>
+    <!--Operator check-->
+    <script language="javascript" type="text/javascript">
+        if (localStorage.length == 0) {
+            var phone;
+            phone = window.prompt("What's your phone number?", "1");
+            localStorage["phone"] = phone;
+        }
+    </script>
+</head>
+
+<body>
+    <header role="banner">
+        <hgroup>
+            <h1><a href="#">You da Operator</a></h1>
+        </hgroup>
+    </header>
+    <div class="panel panel-default">
+        <div class="panel-heading">For the operator</div>
+        <div class="row">
+
+            <div class="col-sm-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Live Feed</div>
+                    <img src="images/initpic.jpg" style="width: 105%; height:105%" alt="Cats">
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Location</div>
+                    <div id="map-canvas" style="width:300px; height:400px"></div>
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Voice</div>
+                    <audio controls>
+                        <source src="media/cat8.wav" type="audio/wav">
+                        <source src="media/at8.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+            </div>
+
+            <div class="col-sm-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Initial Picture</div>
+                    <img src="images/initpic.jpg" alt="Cats">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
