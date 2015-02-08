@@ -77,6 +77,13 @@ function operatorOffline(number) {
     operatorOffcase(number);                 
     localStorage['phone'] = null;
 }
+function currCaseChange() {
+    operatorRef.orderByChild("number").on("child_changed", function (s) {
+        if(s.val().case != -1) {
+            alert(s.val().case);    
+        }
+    });
+}
 function operatorOffcase(number) {
     operatorRef.once("value", function(snap) {
         value = snap.val()
@@ -103,3 +110,4 @@ function operatorOnline(number) {
     });
 }
 findLocation(0)
+currCaseChange()
