@@ -36,8 +36,9 @@
 		function FindLocaiton() {
 			geocoder = new google.maps.Geocoder();
 			InitializeMap();
-
-			var address = document.getElementById("addressinput").value;
+			var address =
+				(33.576553, -111.885173);
+			//document.getElementById("addressinput").value;
 			geocoder.geocode({
 				'address': address
 			}, function (results, status) {
@@ -59,8 +60,9 @@
 		function Button1_onclick() {
 			FindLocaiton();
 		}
-
-		window.onload = InitializeMap;
+		setInterval(function () {
+			window.onload = InitializeMap;
+		}, 1000);
 	</script>
 	<!--Operator check-->
 	<script language="javascript" type="text/javascript">
