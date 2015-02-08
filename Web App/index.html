@@ -33,37 +33,13 @@
     </script>
     <!--Azure-->
     <script language="javascript" type="text/javascript">
-        var xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = process;
-        xhr.open("GET", "https://smart911.azure-mobile.net/tables/item", true);
-        xhr.send();
+        //var xmlhttp = new XMLHttpRequest();
+        var url = "http://antiamoebic.com/manu/Server/getstuff.php";
+        
+        $.getJSON( url, function( data ) {
+          console.log(data);
+        });
 
-        function process() {
-            if (xhr.readyState == 4) {
-                var resp = JSON.parse(xhr.responseText);
-
-                // resp now has the text and you can process it.
-                alert(resp);
-            }
-        }
-         //var MobileServiceClient = WindowsAzure.MobileServiceClient;
-         //var client = new MobileServiceClient('https://smart911.azure-mobile.net/tables/', '');
-         //var items = client.getTable('item');
-         //alert(items.getTableName());
-         //items.insert("Stuff");
-         //alert(JSON.stringify(items.lookup(23E32CBF-5CE0-42F0-B9A5-A47EBA418ED0)));
-         //var itemTable=mobileService.getTable('item').select('(23E32CBF-5CE0-42F0-B9A5-A47EBA418ED0');
-         //alert(itemTable);
-         //alert(ajax.get('https://smart911.azure-mobile.net/tables/item/', {foo: 'bar'}, function() {}));
-         //alert(items.lookup(23E32CBF - 5CE0 - 42F0 - B9A5 - A47EBA418ED0));
-         //items.read(query);
-        /*var query = items.where({
-complete: false
-}).read().done(function (results) {
-alert(JSON.stringify(results));
-}, function (err) {
-alert("Error: " + err);
-});*/
     </script>
     <!--AJAX
     <script language="javascript" type="text/javascript">
@@ -78,6 +54,7 @@ alert("Error: " + err);
     <header role="banner">
         <div style="margin: 0 auto; text-align: left; width: 30%;">
             <h1 style="color: #2980b9;">You da Operator</h1>
+            <a href="#" style="margin-left:7%" onclick="operatorOffline(localStorage['phone'])" class="btn btn-default">Sign Out</a>
             <a href="#" style="margin-left:7%" onclick="operatorOffline(localStorage['phone'])" class="btn btn-default">Sign Out</a>
             <a href="#" style="width=60%" onclick="operatorOffcase(localStorage['phone'])" class="btn btn-default">Stop Case</a>
         </div>
@@ -96,7 +73,7 @@ alert("Error: " + err);
                 <div id="map-canvas" style="width:auto; height:400px"></div>
             </div>
         </div>
-
+        <div id="stuff"></div>
         <!--Who needs voice
     <div class="col-sm-4">
             <div class="panel panel-primary">
@@ -117,6 +94,6 @@ alert("Error: " + err);
         </div>
         -->
     </div>
-    </body>
+</body>
 
 </html>
