@@ -1,33 +1,16 @@
-var map;
-var lat = Math.floor((Math.random() * 90) + -90);
-var lng = Math.floor((Math.random() * 90) + -90);
-
 function initialize() {
+    var myLatlng = new google.maps.LatLng(-25.363882, 131.044922);
     var mapOptions = {
-        lat = Math.floor((Math.random() * 90) + -90);
-        lng = Math.floor((Math.random() * 90) + -90);
-        zoom: 8,
-            center: new google.maps.LatLng(lat, lng)
-    };
+        zoom: 4,
+        center: myLatlng
+    }
+    var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
-    var map = new google.maps.Map(document.getElementById('map-canvas'),
-        mapOptions);
+    var marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map,
+        title: 'Hello World!'
+    });
 }
 
-function loadScript() {
-    var script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.src = 'js/map.js';
-    document.body.appendChild(script);
-}
-
-/*function refresh() {
-    window.onload = loadScript;
-}
-refresh();*/
-windows.onload = loadScript;
-
-while (true) {
-    setTimeout(refresh(), 500);
-    //google.maps.event.addDomListener(window, 'load', initialize);
-}
+google.maps.event.addDomListener(window, 'load', initialize);
